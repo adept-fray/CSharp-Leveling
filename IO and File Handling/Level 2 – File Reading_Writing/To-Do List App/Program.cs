@@ -18,4 +18,22 @@ void Menu()
     Console.WriteLine("(3) Delete task");
 }
 
+void AddTask()
+{
+    Console.WriteLine("Write your task.");
+    string task = Console.ReadLine();
+    File.AppendAllText(filePath, task);
+    File.AppendAllText(filePath, "\n");
+}
+
+Menu();
+
+string option = Console.ReadLine();
+
+if (option == "1")
+{
+    AddTask();
+}
+if (option == "2")
+if (option == "3")
 Console.ReadKey();
