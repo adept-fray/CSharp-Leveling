@@ -7,3 +7,4 @@ Organize files by extension.
 - Ask for a directory path.
 - Move <code>.txt</code>, <code>.jpg</code>, <code>.cs</code> files into subfolders like <code>TextFiles</code>, <code>/Images</code>, etc.
 - Use <code>Directory.GetFiles()</code> and <code>File.Move()</code>.
+- Catch some <code>IO exception/error</code>.
