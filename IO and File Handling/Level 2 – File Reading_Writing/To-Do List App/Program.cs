@@ -26,6 +26,13 @@ void AddTask()
     File.AppendAllText(filePath, "\n");
 }
 
+void ListTasks()
+{
+    Console.WriteLine("Listing all tasks.");
+    List<string> tasks = new(File.ReadAllLines(filePath));
+    tasks.ForEach(task => Console.WriteLine(task));
+}
+
 Menu();
 
 string option = Console.ReadLine();
@@ -35,5 +42,9 @@ if (option == "1")
     AddTask();
 }
 if (option == "2")
+{
+    ListTasks()
+}
 if (option == "3")
+    ;
 Console.ReadKey();
