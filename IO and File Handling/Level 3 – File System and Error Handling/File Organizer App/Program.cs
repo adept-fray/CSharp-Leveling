@@ -26,15 +26,10 @@ foreach (string file in files)
     string extension = Path.GetExtension(file).ToLower();
     Console.WriteLine(extension);
 
-    if (!extensions.Contains(extension))
-    {
-        continue;
-    }
-
 
     string directoryName = extensionAndFolderDict.GetValueOrDefault(extension);
     if (directoryName is null)
-        directoryName = "OtherFiles";
+        continue;
 
     string currentDirectory = Path.GetDirectoryName(file);
     string newDirectory = Path.Combine(currentDirectory, directoryName);
@@ -49,7 +44,33 @@ foreach (string file in files)
 
     string newFilePath = Path.Combine(newDirectory, filename);
     Console.WriteLine("newFilePath: " + newFilePath);
-    File.Move(file, newFilePath);
+
+    try
+    {
+        if (File.Exists(newFilePath))
+        {
+            Console.WriteLine($"Skipped (already exists): {newFilePath}");
+            continue;
+        }
+        File.Move(file, newFilePath);
+    }
+    catch (UnauthorizedAccessException unauthex)
+    {
+        Console.WriteLine($"Access denied: {newFilePath}");
+    }
+    catch (DirectoryNotFoundException direx)
+    {
+        Console.WriteLine($"Directory not found: {newFilePath}, {direx.Message}");
+    }
+    catch (IOException ioex)
+    {
+        Console.WriteLine($"IO error for {newFilePath}: {ioex.Message}");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Unexpected error for {filename}: {ex.Message}");
+    }
 }
 
+Console.WriteLine("File organization complete.");
 Console.ReadKey();
