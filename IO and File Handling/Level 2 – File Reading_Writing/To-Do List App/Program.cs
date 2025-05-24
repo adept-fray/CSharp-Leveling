@@ -33,6 +33,31 @@ void ListTasks()
     tasks.ForEach(task => Console.WriteLine(task));
 }
 
+void DeleteTask()
+{
+    Console.WriteLine("Listing all tasks to delete one.");
+    List<string> tasks = new(File.ReadAllLines(filePath));
+    tasks.ForEach(task =>
+    {
+        Console.WriteLine($"{tasks.IndexOf(task)}. {task}");
+    });
+    Console.WriteLine("Choose the number you want to delete:");
+    try
+    {
+        int deleteIndex = int.Parse(Console.ReadLine());
+        string deletedTask = tasks[deleteIndex];
+        tasks.RemoveAt(deleteIndex);
+        Console.WriteLine("Removed: " + deletedTask);
+        File.WriteAllLines(filePath, tasks);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("not a correct number.");
+        Console.WriteLine(ex.Message);
+        //Console.WriteLine(ex.ToString());
+    }
+}
+
 Menu();
 
 string option = Console.ReadLine();
@@ -43,8 +68,10 @@ if (option == "1")
 }
 if (option == "2")
 {
-    ListTasks()
+    ListTasks();
 }
 if (option == "3")
-    ;
+{
+    DeleteTask();
+}
 Console.ReadKey();
