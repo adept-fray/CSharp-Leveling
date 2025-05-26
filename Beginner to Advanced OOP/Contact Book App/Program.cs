@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Console.WriteLine("Contact Book App");
+Console.WriteLine("Create a class Contact with Name, Phone, Email.");
+
+class Contact
+{
+    public string Name;
+    public string Phone;
+    public string Email;
+}
