@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using BankAccountManagerApp;
+
+Console.WriteLine("Bank Account Manager");
+Console.WriteLine("Bank Account with deposit/withdraw and private balance.");
+
+
