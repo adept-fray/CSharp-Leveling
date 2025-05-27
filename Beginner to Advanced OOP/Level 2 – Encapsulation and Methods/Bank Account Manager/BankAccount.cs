@@ -2,9 +2,9 @@ namespace BankAccountManagerApp;
 
 class BankAccount
 {
-    private double balance { get; set; }
+    private decimal balance { get; set; }
 
-    public void Deposit(double amount)
+    public void Deposit(decimal amount)
     {
         if( amount < 0)
         {
@@ -13,10 +13,10 @@ class BankAccount
         }
 
         balance += amount;
-        Console.WriteLine($"Successfully deposited: {amount}.");
+        Console.WriteLine($"Deposited {amount:C}. New balance: {balance:C}");
     }
 
-    public double Withdraw(double amount)
+    public void Withdraw(decimal amount)
     {
         if (balance < 0)
         {
@@ -27,12 +27,16 @@ class BankAccount
         if (amount > balance)
         {
             Console.WriteLine($"You can not withdraw more than your balance.");
+            Console.WriteLine("Insufficient funds.");
             return;
         }
 
         balance -= amount;
-        Console.WriteLine($"Successfully withdrawed: {amount}.");
+        Console.WriteLine($"Withdrew {amount:C}. New balance: {balance:C}");
+    }
 
-        return amount;
+    public decimal GetBalance()
+    {
+        return balance;
     }
 }
