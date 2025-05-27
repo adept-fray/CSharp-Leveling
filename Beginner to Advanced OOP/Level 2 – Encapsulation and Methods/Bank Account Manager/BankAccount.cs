@@ -4,11 +4,16 @@ class BankAccount
 {
     private decimal balance { get; set; }
 
+    public BankAccount()
+    {
+        this.balance = 0;
+    }
+
     public void Deposit(decimal amount)
     {
         if( amount < 0)
         {
-            Console.WriteLine($"Can not deposite negative amount.");
+            Console.WriteLine($"Can not deposit negative amount.");
             return;
         }
 
