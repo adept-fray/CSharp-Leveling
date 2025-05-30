@@ -1,9 +1,9 @@
 # Zoo Simulator
 
 ## Goals
-Base class Animal, derived classes Lion, Elephant, etc.
+Base class <code>Animal</code>, derived classes <code>Lion</code>, <code>Elephant</code>, etc.
 
 ### Steps:
-- Each animal overrides <code>MakeSound()</code>.
+- Each animal overrides MakeSound()</code>.
 - Store all animals in a <code>List\<Animal></code>.
 - Loop through list and call <code>MakeSound()</code> on each.
