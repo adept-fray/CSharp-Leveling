@@ -1,13 +1,13 @@
 namespace VehicleInterfaceApp;
 
-class MotorbikeTruck : IVehicle
+class Motorbike : IVehicle
 {
     public void Start()
     {
-        Console.WriteLine("Motorbike Truck.");
+        Console.WriteLine("Start Motorbike.");
     }
     public void Stop()
     {
-        Console.WriteLine("Motorbike Truck.");
+        Console.WriteLine("Stop Motorbike.");
     }
 }
