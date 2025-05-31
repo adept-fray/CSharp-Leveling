@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using LibraryManagerApp;
+
+Console.WriteLine("Library Manager App");
+
+LibraryManager manager = new LibraryManager();
+
+manager.Display();
